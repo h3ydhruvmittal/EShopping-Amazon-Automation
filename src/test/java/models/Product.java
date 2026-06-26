@@ -2,11 +2,8 @@ package models;
 
 public class Product {
     private String asin;
-
     private String title;
-
     private String price;
-
     private String rating;
 
     public String getAsin() {

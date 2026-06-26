@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
@@ -47,6 +48,16 @@ public class ElementUtils {
                 .filter(WebElement::isDisplayed)
                 .findFirst()
                 .orElseThrow(() -> new NoSuchElementException("No visible element found: " + locator));
+    }
+
+    public static void selectByVisibleText(WebDriver driver, By locator, String text) {
+        Select select = new Select(driver.findElement(locator));
+        select.selectByVisibleText(text);
+    }
+
+    public static void selectByValue(WebDriver driver, By locator, String value) {
+        Select select = new Select(driver.findElement(locator));
+        select.selectByValue(value);
     }
 
 }

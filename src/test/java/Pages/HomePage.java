@@ -3,8 +3,12 @@ package Pages;
 import constants.Credentials;
 import locators.HomePageLocators;
 import locators.LoginPageLocators;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import utils.ElementUtils;
 
@@ -63,6 +67,13 @@ public class HomePage {
     }
 
     public void search(String itemName){
+        ElementUtils.enterText(driver,HomePageLocators.SearchBar.searchBarTextBox,itemName);
+        ElementUtils.click(driver,HomePageLocators.SearchBar.searchSubmitButton);
+    }
+
+    public void search(String category,String itemName){
+        ElementUtils.click(driver,HomePageLocators.SearchBar.categoryDropDown);
+        ElementUtils.selectByValue(driver,HomePageLocators.SearchBar.categoryDropDown,category);
         ElementUtils.enterText(driver,HomePageLocators.SearchBar.searchBarTextBox,itemName);
         ElementUtils.click(driver,HomePageLocators.SearchBar.searchSubmitButton);
     }

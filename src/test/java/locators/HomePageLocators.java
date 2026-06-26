@@ -16,5 +16,7 @@ public class HomePageLocators {
         public static By searchBarTextBox = By.id("twotabsearchtextbox");
         public static By searchSubmitButton = By.id("nav-search-submit-button");
         public static By autocompleteSuggestion = By.cssSelector("div[role='row'][id^='sac-suggestion-row-']");
+        //public static By categoryDropDown = By.id("searchDropdownBox");
+        public static By categoryDropDown = By.xpath("//select[@title='Search in']");
     }
 }
