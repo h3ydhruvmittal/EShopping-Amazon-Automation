@@ -1,6 +1,7 @@
 package utils;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -58,6 +59,18 @@ public class ElementUtils {
     public static void selectByValue(WebDriver driver, By locator, String value) {
         Select select = new Select(driver.findElement(locator));
         select.selectByValue(value);
+    }
+
+    public static void setRangeValue(WebDriver driver, By locator, int value) {
+        WebElement slider = driver.findElement(locator);
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript(
+                "arguments[0].value = arguments[1];" +
+                        "arguments[0].dispatchEvent(new Event('input', { bubbles: true }));" +
+                        "arguments[0].dispatchEvent(new Event('change', { bubbles: true }));",
+                slider,
+                value);
+
     }
 
 }

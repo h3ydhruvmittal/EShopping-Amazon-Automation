@@ -22,5 +22,12 @@ public class ProductPageLocators {
     public static By productByASIN(String asin) {
         return By.xpath(String.format("//div[@data-component-type='s-search-result' and @data-asin='%s']", asin));
     }
+    public static class ProductFilter{
+        public static By filterProductByBrand(String brand){
+            return By.xpath(String.format("//span[normalize-space()='%s']/preceding-sibling::div//i[contains(@class,'a-icon-checkbox')]",brand));
+        }
+        public static By minimumPrice = By.xpath("//input[@aria-label='Minimum price']");
+        public static By maximumPrice = By.xpath("//input[@aria-label='Maximum price']");
+    }
 
 }

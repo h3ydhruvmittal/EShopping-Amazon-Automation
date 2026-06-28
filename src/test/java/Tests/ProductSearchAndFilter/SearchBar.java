@@ -24,7 +24,6 @@ import java.util.List;
 public class SearchBar {
     public static AppImpl app;
     public static HomePage homePage;
-    public static Actions actions;
 
     @Test
     @TestInfo(testCaseId = "AMZ_016", testCaseName = "Verify simple keyword search returns relevant products.")

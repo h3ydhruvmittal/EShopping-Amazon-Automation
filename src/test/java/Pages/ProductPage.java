@@ -54,8 +54,38 @@ public class ProductPage {
         return products;
     }
 
-//    public Product productCard(WebDriver driver){
-//
-//    }
+    public void setMinimumPrice(int targetPrice) {
+        By minPriceSlider = ProductPageLocators.ProductFilter.minimumPrice;
+        WebElement slider = driver.findElement(minPriceSlider);
+        while (true) {
+            double  currentPrice = parsePrice(slider.getAttribute("aria-valuetext"));
+            if (currentPrice >= targetPrice) {
+                break;
+            }
+            int currentValue = Integer.parseInt(slider.getAttribute("value"));
+            ElementUtils.setRangeValue(driver, minPriceSlider, currentValue + 1);
+        }
+    }
+    public void setMaximumPrice(int targetPrice) {
+        By maxPriceSlider = ProductPageLocators.ProductFilter.maximumPrice;
+        WebElement slider = driver.findElement(maxPriceSlider);
+        while (true) {
+            double  currentPrice = parsePrice(slider.getAttribute("aria-valuetext"));
+            if (currentPrice <= targetPrice) {
+                break;
+            }
+            int currentValue = Integer.parseInt(slider.getAttribute("value"));
+            ElementUtils.setRangeValue(driver, maxPriceSlider, currentValue - 1);
+        }
+    }
+    private double parsePrice(String priceText) {
+        return Double.parseDouble(
+                priceText
+                        .replace("₹", "")
+                        .replace(",", "")
+                        .replace("+","")
+                        .trim()
+        );
+    }
 
 }
