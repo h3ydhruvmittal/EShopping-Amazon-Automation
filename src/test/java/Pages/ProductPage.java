@@ -47,8 +47,17 @@ public class ProductPage {
                     card.findElement(ProductPageLocators.ProductPageCard.productTitle).getText());
             product.setPrice(
                     card.findElement(ProductPageLocators.ProductPageCard.productPrice).getAttribute("innerText"));
-            product.setRating(
-                    card.findElement(ProductPageLocators.ProductPageCard.productRating).getText());
+
+            List<WebElement> ratingElements = card.findElements(
+                    ProductPageLocators.ProductPageCard.productRating);
+            if (ratingElements.isEmpty()) {
+                product.setRating("0");
+            }
+            else {
+                product.setRating(card.findElement(ProductPageLocators.ProductPageCard.productRating).getText());
+            }
+//            product.setRating(
+//                    card.findElement(ProductPageLocators.ProductPageCard.productRating).getText());
             products.add(product);
         }
         return products;
@@ -78,7 +87,7 @@ public class ProductPage {
             ElementUtils.setRangeValue(driver, maxPriceSlider, currentValue - 1);
         }
     }
-    private double parsePrice(String priceText) {
+    public double parsePrice(String priceText) {
         return Double.parseDouble(
                 priceText
                         .replace("₹", "")

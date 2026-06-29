@@ -1,12 +1,14 @@
 package locators;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 
 public class ProductPageLocators {
     private ProductPageLocators() {};
 
     public static class ProductMenuPage{
         public static By productCardList = By.xpath("//div[@data-component-type='s-search-result' and @data-asin!='' and not(.//*[contains(text(),'Sponsored')])]");
+        public static By sortByDropDown = By.id("s-result-sort-select");
     }
 
     public static class ProductPageCard{
