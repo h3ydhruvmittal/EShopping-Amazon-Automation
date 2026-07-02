@@ -13,7 +13,7 @@ import org.testng.annotations.Test;
 import utils.ElementUtils;
 import utils.TestInfo;
 
-public class ProductFiltering {
+public class TestProductFiltering {
     public static AppImpl app;
     public static HomePage homePage;
     public static ProductPage productPage;

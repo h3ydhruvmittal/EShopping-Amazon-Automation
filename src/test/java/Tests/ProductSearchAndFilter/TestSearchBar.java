@@ -10,7 +10,6 @@ import locators.ProductPageLocators;
 import models.Product;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Optional;
@@ -21,7 +20,7 @@ import utils.TestInfo;
 import java.time.Duration;
 import java.util.List;
 
-public class SearchBar {
+public class TestSearchBar {
     public static AppImpl app;
     public static HomePage homePage;
 
