@@ -41,3 +41,5 @@ build/
 src/test/resources/local.properties
 
 browserstack.yml
+
+logs/browserstack-plugin.log
