@@ -9,6 +9,14 @@ public class ProductPageLocators {
     public static class ProductMenuPage{
         public static By productCardList = By.xpath("//div[@data-component-type='s-search-result' and @data-asin!='' and not(.//*[contains(text(),'Sponsored')])]");
         public static By sortByDropDown = By.id("s-result-sort-select");
+        public static By previousPageButtonInactive = By.xpath("//span[contains(@class,'s-pagination-previous')]");
+        public static By previousPageButtonActive = By.xpath("//a[contains(@class,'s-pagination-previous')]");
+        public static By switchToPageNumber(int pageNumber){
+            return By.xpath(String.format("//a[@aria-label='Go to page %d']",pageNumber));
+        }
+        public static By currentPage(int pageNumber){
+            return By.xpath(String.format("//span[@aria-label='Page %d']",pageNumber));
+        }
     }
 
     public static class ProductPageCard{
